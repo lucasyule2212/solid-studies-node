@@ -8,28 +8,36 @@ interface RegisterUseCaseRequest {
   password: string
 }
 
-export async function registerUseCase({
-  name,
-  email,
-  password,
-}: RegisterUseCaseRequest) {
-  const password_hash = await hash(password, 6)
+// ! SOLID
+// ? D - Dependency Inversion Principle
+// ? High-level modules should not depend on low-level modules. Both should depend on abstractions.
 
-  const userWithSameEmail = await prisma.user.findUnique({
-    where: {
+/*
+? Instead of explicity instantiating the PrismaUsersRepository (a dependency), we can pass it as a parameter to the registerUseCase function.
+ */
+
+export class RegisterUseCase {
+  constructor(private usersRepository: any) {}
+
+  async execute({ name, email, password }: RegisterUseCaseRequest) {
+    const password_hash = await hash(password, 6)
+
+    const userWithSameEmail = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    })
+
+    if (userWithSameEmail) {
+      throw new Error('Email already exists')
+    }
+
+    const prismaUsersRepository = new PrismaUsersRepository()
+
+    await this.usersRepository.create({
+      name,
       email,
-    },
-  })
-
-  if (userWithSameEmail) {
-    throw new Error('Email already exists')
+      password_hash,
+    })
   }
-
-  const prismaUsersRepository = new PrismaUsersRepository()
-
-  await prismaUsersRepository.create({
-    name,
-    email,
-    password_hash,
-  })
 }
