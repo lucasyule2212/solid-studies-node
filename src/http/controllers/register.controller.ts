@@ -1,4 +1,5 @@
 import { PrismaUsersRepository } from '@/repositories/prisma-users-repository'
+import { EmailAlreadyExistsError } from '@/use-cases/errors/email-already-exists-error'
 import { RegisterUseCase } from '@/use-cases/register'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
@@ -22,8 +23,13 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
       password,
     })
   } catch (error) {
-    // ? 409 - because this operation is a conflict (email already exists in the database)
-    return reply.status(409).send()
+    if (error instanceof EmailAlreadyExistsError) {
+      // ? 409 - because this operation is a conflict (email already exists in the database)
+      return reply.status(409).send({ message: error.message })
+    }
+
+    // ? 500 - because this is an unexpected error
+    return reply.status(500).send()
   }
 
   // ? 201 - because this is a CREATE operation that does not return any data
