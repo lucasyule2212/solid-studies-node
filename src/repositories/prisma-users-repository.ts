@@ -1,8 +1,8 @@
 import { prisma } from '@/services/prisma'
 import { Prisma, PrismaClient } from '@prisma/client'
-import { UsersRepository } from './interfaces/users-repository'
+import { IUsersRepository } from './interfaces/users-repository'
 
-export class PrismaUsersRepository implements UsersRepository {
+export class PrismaUsersRepository implements IUsersRepository {
   private prismaClient: PrismaClient
 
   constructor() {
