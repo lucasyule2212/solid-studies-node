@@ -4,7 +4,7 @@ API project build with Node.js with the purpose of study and review SOLID concep
 # Gympass Style app
 ## FR - Functional Requirements
 
-- [ ] It must be possible to sign-up a new user
+- [x] It must be possible to sign-up a new user
 - [ ] It must be possible to sign-in a user
 - [ ] It must be possible to get signed-in user information
 - [ ] It must be possible to check-in a signed-in user in a gym
@@ -17,7 +17,7 @@ API project build with Node.js with the purpose of study and review SOLID concep
 
 ## BR - Business Requirements
 
-- [ ] User should not be able to sign-up with an already registered email
+- [x] User should not be able to sign-up with an already registered email
 - [ ] User should not be able to perform 2 check-ins in the same day
 - [ ] User should not be able to check-in in a gym if it is not close (100m) to the gym
 - [ ] User check-in can only be validated within 20 minutes
@@ -25,7 +25,7 @@ API project build with Node.js with the purpose of study and review SOLID concep
 - [ ] Gym should only be able to be signed-up by an administrator
 
 ## NFR - Non-Functional Requirements
-- [ ] User password must be encrypted
-- [ ] User password must be in a PostgreSQL database
+- [x] User password must be encrypted
+- [x] User password must be in a PostgreSQL database
 - [ ] All listed data must be paginated with a limit of 20 items per page
 - [ ] User must be identified by a JWT token
