@@ -19,4 +19,18 @@ export class PrismaCheckinsRepository implements ICheckinsRepository {
 
     return checkIn
   }
+
+  async findByUserIdOnDate({ user_id, date }: { user_id: string; date: Date }) {
+    const checkInOnSameDate = await this.prismaClient.checkIn.findFirst({
+      where: {
+        user_id,
+        created_at: {
+          gte: date,
+          lt: new Date(date.getTime() + 24 * 60 * 60 * 1000),
+        },
+      },
+    })
+
+    return checkInOnSameDate || null
+  }
 }
