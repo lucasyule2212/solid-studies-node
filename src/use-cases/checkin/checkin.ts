@@ -27,6 +27,15 @@ export class CheckinUseCase {
     //   throw new Error('User not found')
     // }
 
+    const checkInOnSameDate = await this.checkinsRepository.findByUserIdOnDate({
+      user_id: userId,
+      date: new Date(),
+    })
+
+    if (checkInOnSameDate) {
+      throw new Error()
+    }
+
     const checkIn = await this.checkinsRepository.create({
       gym_id: gymId,
       user_id: userId,
