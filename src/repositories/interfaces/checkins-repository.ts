@@ -19,4 +19,5 @@ export interface ICheckinsRepository {
     user_id: string
     page: number
   }): Promise<CheckIn[]>
+  countByUserId({ user_id }: { user_id: string }): Promise<number>
 }
