@@ -13,7 +13,7 @@ API project build with Node.js with the purpose of study and review SOLID concep
 - [ ] It must be possible to get signed-in user closests gyms
 - [ ] It must be possible the signed-in user to search for gyms by name
 - [ ] It must be possible to validate the signed-in user check-in
-- [ ] It must be possible to sign-up a new gym
+- [x] It must be possible to sign-up a new gym
 
 ## BR - Business Requirements
 
