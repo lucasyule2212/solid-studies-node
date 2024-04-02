@@ -10,4 +10,11 @@ export interface IGymsRepository {
     query: string
     page: number
   }): Promise<Gym[]>
+  findManyNearby({
+    latitude,
+    longitude,
+  }: {
+    latitude: number
+    longitude: number
+  }): Promise<Gym[]>
 }

@@ -10,7 +10,7 @@ API project build with Node.js with the purpose of study and review SOLID concep
 - [x] It must be possible to check-in a signed-in user in a gym
 - [x] It must be possible to get the number of check-ins of a signed-in user
 - [x] It must be possible to get signed-in user check-in history
-- [ ] It must be possible to get signed-in user closests gyms
+- [ ] It must be possible to get signed-in user closests gyms (2km radius)
 - [x] It must be possible the signed-in user to search for gyms by name
 - [ ] It must be possible to validate the signed-in user check-in
 - [x] It must be possible to sign-up a new gym
