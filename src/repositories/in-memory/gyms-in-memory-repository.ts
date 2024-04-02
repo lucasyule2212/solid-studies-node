@@ -31,4 +31,10 @@ export class GymsInMemoryRepository implements IGymsRepository {
 
     return gym
   }
+
+  async searchManyByTitle({ query, page }: { query: string; page: number }) {
+    return this.gyms
+      .filter((gym) => gym.title.includes(query))
+      .slice((page - 1) * 20, page * 20)
+  }
 }
