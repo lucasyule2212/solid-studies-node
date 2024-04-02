@@ -20,4 +20,6 @@ export interface ICheckinsRepository {
     page: number
   }): Promise<CheckIn[]>
   countByUserId({ user_id }: { user_id: string }): Promise<number>
+  findById({ id }: { id: string }): Promise<CheckIn | null>
+  save(checkIn: CheckIn): Promise<CheckIn>
 }
