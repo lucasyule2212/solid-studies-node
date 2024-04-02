@@ -17,10 +17,15 @@ export async function authenticate(
   try {
     const authenticateUseCase = makeAuthenticateUseCase()
 
-    await authenticateUseCase.execute({
+    const { user } = await authenticateUseCase.execute({
       email,
       password,
     })
+
+    const token = await reply.jwtSign({}, { sign: { sub: user.id } })
+
+    // ? 200 - because this is a successful operation
+    return reply.status(200).send(token)
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {
       // ? 400 - because this operation is a bad request (invalid credentials)
@@ -30,7 +35,4 @@ export async function authenticate(
     // ? 500 - because this is an unexpected error
     return reply.status(500).send()
   }
-
-  // ? 200 - because this is a successful operation
-  return reply.status(200).send()
 }
