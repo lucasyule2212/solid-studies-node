@@ -1,5 +1,5 @@
 # solid-studies-node
-API project build with Node.js with the purpose of study and review SOLID concepts
+API project built with Node.js and Fastify with the purpose of study and review SOLID concepts
 
 ## Gympass Style API
 ### FR - Functional Requirements
