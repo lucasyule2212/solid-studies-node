@@ -1,4 +1,5 @@
 import { env } from '@/env'
+import { prisma } from '@/services/prisma'
 import { execSync } from 'child_process'
 import { randomUUID } from 'crypto'
 import { Environment } from 'vitest'
@@ -27,10 +28,15 @@ export default <Environment>{
 
     process.env.DATABASE_URL = databaseURL
 
-    execSync('npx prisma migrate deploy --preview-feature')
+    execSync('npx prisma migrate deploy')
 
     return {
-      teardown() {},
+      async teardown() {
+        await prisma.$executeRawUnsafe(
+          `DROP SCHEMA IF EXISTS "${schema}" CASCADE`,
+        )
+        await prisma.$disconnect()
+      },
     }
   },
 }
