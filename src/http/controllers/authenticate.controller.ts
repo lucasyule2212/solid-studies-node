@@ -25,7 +25,7 @@ export async function authenticate(
     const token = await reply.jwtSign({}, { sign: { sub: user.id } })
 
     // ? 200 - because this is a successful operation
-    return reply.status(200).send(token)
+    return reply.status(200).send({ token })
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {
       // ? 400 - because this operation is a bad request (invalid credentials)
