@@ -16,7 +16,7 @@ describe('Create Gym Controller (e2e)', async () => {
   it('Should be able to create a gym', async () => {
     const { token } = await createAndAuthUser(app)
 
-    const profileResponse = await request(app.server)
+    const response = await request(app.server)
       .post('/gyms')
       .set('Authorization', `Bearer ${token}`)
       .send({
@@ -27,6 +27,6 @@ describe('Create Gym Controller (e2e)', async () => {
         longitude: userTestLongitude,
       })
 
-    expect(profileResponse.status).toBe(201)
+    expect(response.status).toBe(201)
   })
 })
