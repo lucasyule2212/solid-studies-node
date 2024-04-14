@@ -28,7 +28,7 @@ export class PrismaGymsRepository implements IGymsRepository {
           contains: query,
         },
       },
-      skip: page * 20,
+      skip: (page - 1) * 20,
       take: 20,
     })
 

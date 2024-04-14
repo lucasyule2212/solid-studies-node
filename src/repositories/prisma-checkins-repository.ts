@@ -15,7 +15,7 @@ export class PrismaCheckinsRepository implements ICheckinsRepository {
       where: {
         user_id,
       },
-      skip: page * 10,
+      skip: (page - 1) * 10,
       take: 10,
       orderBy: {
         created_at: 'desc',
