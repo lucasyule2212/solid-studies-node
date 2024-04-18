@@ -23,6 +23,14 @@ API project built with Node.js and Fastify with the purpose of study and review 
 
 **CI**: Github Actions.
 
+## Learnings...
+- TDD concepts
+- Reinforcement of SOLID principles
+- Design Patterns
+- HTTP return codes
+- Managing Cookies in HTTP requests
+- RBAC
+
 
 ## Features -> Gympass Style API
 ### FR - Functional Requirements
