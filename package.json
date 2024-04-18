@@ -10,7 +10,7 @@
     "test": "vitest run --dir src/use-cases",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "pretest:e2e": "pnpm link ./prisma/vitest-environment-prisma",
+    "pretest:e2e": "pnpm link ./prisma/vitest-environment-prisma | npx prisma generate",
     "test:e2e": "vitest run --dir src/http",
     "test:e2e:watch": "vitest --dir src/http"
   },
