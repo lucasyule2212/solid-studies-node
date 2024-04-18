@@ -1,10 +1,5 @@
 import { app } from '@/app'
-import {
-  furtherGymLatitude,
-  furtherGymLongitude,
-  userTestLatitude,
-  userTestLongitude,
-} from '@/utils/consts'
+import { userTestLatitude, userTestLongitude } from '@/utils/consts'
 import { createAndAuthUser } from '@/utils/test/create-and-auth-user'
 import request from 'supertest'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
@@ -19,7 +14,7 @@ describe('Nearby Gyms Controller (e2e)', async () => {
   })
 
   it('Should be able to list nearby gyms', async () => {
-    const { token } = await createAndAuthUser(app)
+    const { token } = await createAndAuthUser(app, 'ADMIN')
 
     // creating some gyms
     await request(app.server)

@@ -17,6 +17,7 @@ describe('Refresh Token Controller (e2e)', async () => {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: 'zxczxc',
+      role: 'MEMBER',
     })
 
     const authResponse = await request(app.server).post('/sessions').send({

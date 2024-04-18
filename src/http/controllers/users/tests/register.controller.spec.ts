@@ -18,6 +18,7 @@ describe('Register Controller (e2e)', async () => {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: 'zxczxc',
+      role: 'MEMBER',
     })
 
     expect(response.status).toBe(201)

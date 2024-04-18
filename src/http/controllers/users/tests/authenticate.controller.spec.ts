@@ -17,6 +17,7 @@ describe('Authenticate Controller (e2e)', async () => {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: 'zxczxc',
+      role: 'MEMBER',
     })
 
     const response = await request(app.server).post('/sessions').send({
