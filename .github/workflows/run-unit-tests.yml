@@ -17,7 +17,7 @@ jobs:
           node-version: '21.3.0'
           cache: 'pnpm'
 
-      - run: pnpm ci 
+      - run: pnpm install 
       
       - run: pnpm test
         
