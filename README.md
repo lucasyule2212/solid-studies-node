@@ -1,7 +1,30 @@
-# solid-studies-node
-API project built with Node.js and Fastify with the purpose of study and review SOLID concepts
+# SOLID studies in Node.js
+API project built with Node.js and Fastify with the purpose of study and review SOLID, unit testing, e2e testing and TDD concepts.
 
-## Gympass Style API
+## Author
+
+- [@lucasyule2212 - GitHub](https://www.github.com/lucasyule2212)
+- [lucasyulerocha - LinkedIn](https://www.linkedin.com/in/lucasyulerocha/)
+
+## Used Techs
+**Core techs**: Node.js & Typescript.
+
+**Framework**: Fastify.
+
+**Database**: PostgreSQL.
+
+**Database ORM**: PrismaORM.
+
+**E2E/Unit Testing**: Vitest.
+
+**E2E API Mock**: Supertest.
+
+**Others/Utilities**: Zod, DayJS.
+
+**CI**: Github Actions.
+
+
+## Features -> Gympass Style API
 ### FR - Functional Requirements
 
 - [x] It must be possible to sign-up a new user
